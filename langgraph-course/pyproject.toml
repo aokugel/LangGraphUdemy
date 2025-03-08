@@ -20,7 +20,9 @@ dependencies = [
     "isort (>=5.13.2,<6.0.0)",
     "pytest (>=8.3.4,<9.0.0)",
     "pytest-cov (>=6.0.0,<7.0.0)",
-    "langchain-openai (>=0.3.2,<0.4.0)"
+    "langchain-openai (>=0.3.2,<0.4.0)",
+    "langchain-core (>=0.3.40,<0.4.0)",
+    "pydantic (>=2.10.6,<3.0.0)"
 ]
 
 
