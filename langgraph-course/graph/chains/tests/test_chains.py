@@ -8,7 +8,7 @@ from ingestion import retriever
 def test_retrieval_grader_answer_yes() -> None: 
     question = "agent memory"
     docs = retriever.invoke(question)
-    doc_txt = docs[1].page_content
+    doc_txt = docs[0].page_content
 
     res: GradeDocuments = retrieval_grader.invoke(
         {"question": question, "document": doc_txt}
@@ -19,7 +19,7 @@ def test_retrieval_grader_answer_yes() -> None:
 def test_retival_grader_answer_no() -> None:
     question = "agent memory"
     docs = retriever.invoke(question)
-    doc_txt = docs[1].page_content
+    doc_txt = docs[0].page_content
 
     res: GradeDocuments = retrieval_grader.invoke(
         {"question": "How do a launder crypto profits?", "document": doc_txt}
