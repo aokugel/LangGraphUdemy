@@ -21,4 +21,4 @@ if __name__=='__main__':
     test_state = GraphState()
     
     test_state['question'] = "what if god was one of us?"
-    print(type(test_state))
+    print(test_state)
