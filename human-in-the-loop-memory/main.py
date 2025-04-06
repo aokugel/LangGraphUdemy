@@ -29,17 +29,14 @@ builder.add_edge("step_1", "human_feedback")
 builder.add_edge("human_feedback", "step_3")
 builder.add_edge("step_3", END)
 
-conn = sqlite3.connect("checkpoints.sqlite", check_same_thread=False)
-memory = SqliteSaver.from_conn_string("checkpoints.sqlite")
+conn = sqlite3.connect("checkpoints.sqlite",check_same_thread=False)
+memory = SqliteSaver(conn)
+graph = builder.compile(checkpointer=memory, interrupt_before=["human_feedback"])
 
-with memory as checkpointer:
-    graph = builder.compile(checkpointer=checkpointer)
-    
-interrupt_before=["human_feedback"]
 graph.get_graph().draw_mermaid_png(output_file_path="graph.png")
 
 if __name__ == "__main__":
-    thread = {"configurable": {"thread_id": "777"}}
+    thread = {"configurable": {"thread_id": "34"}}
 
     initial_input = {"input": "hello world"}
 
